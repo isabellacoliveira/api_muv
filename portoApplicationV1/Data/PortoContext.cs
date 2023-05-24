@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using portoApplicationV1.Models;
 using setorPortuario.Models;
 
 namespace portoApplicationV1.Data
@@ -10,6 +11,7 @@ namespace portoApplicationV1.Data
         }
 
         public DbSet<Container> Containers { get; set; }
+        public DbSet<Movimentacao> Movimentacoes { get; set; }
 
     }
 }

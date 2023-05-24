@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using setorPortuario.DTOs.Container;
 using setorPortuario.DTOs.Enums;
 
 namespace setorPortuario.Models
@@ -7,6 +6,7 @@ namespace setorPortuario.Models
     public class Container
     {
         [Key]
+        [Required]
         public int Id { get; set; }
         [Required(ErrorMessage = "O Cliente é obrigatório!")]
         public string Cliente { get; set; }
@@ -15,12 +15,12 @@ namespace setorPortuario.Models
         public string NumeroContainer { get; set; }
 
         [Required(ErrorMessage = "O tipo do container é obrigatório!")]
-        public string Tipo { get; set; }
+        public TipoContainer Tipo { get; set; }
 
         [Required(ErrorMessage = "O status do container é obrigatório!")]
-        public string Status { get; set; }
+        public StatusContainer Status { get; set; }
 
         [Required(ErrorMessage = "A categoria do container é obrigatória!")]
-        public string Categoria { get; set; }
+        public CategoriaContainer Categoria { get; set; }
     }
 }

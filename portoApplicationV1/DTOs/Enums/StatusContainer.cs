@@ -1,4 +1,4 @@
-namespace setorPortuario.DTOs.Container
+namespace setorPortuario.DTOs.Enums
 {
     public enum StatusContainer
     {
