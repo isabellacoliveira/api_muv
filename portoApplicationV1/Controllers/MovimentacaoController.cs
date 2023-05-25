@@ -21,7 +21,7 @@ namespace portoApplicationV1.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
+    [HttpPost]
     public IActionResult adicionaMovimentacao([FromBody] CreateMovimentacaoDTO movimentacaoDTO)
     {
         Movimentacao movimentacao = _mapper.Map<Movimentacao>(movimentacaoDTO);
@@ -38,14 +38,17 @@ namespace portoApplicationV1.Controllers
         return _mapper.Map<List<MovimentacaoResponseDTO>>(_context.Movimentacoes.Skip(skip).Take(take));
     }
 
-    [HttpGet("{id}")]
-    public IActionResult buscarMovimentacaoPorId(int id)
-    {
-        var movimentacao = _context.Movimentacoes.FirstOrDefault(movimentacao => movimentacao.Id == id);
-        if(movimentacao == null) return NotFound();
-        var movimentacaoDto = _mapper.Map<MovimentacaoResponseDTO>(movimentacao);
-        return Ok(movimentacaoDto);
-    }
+        [HttpGet("{containerId}")]
+        public IActionResult buscarMovimentacaoPorId(int containerId)
+        {
+            Movimentacao movimentacao = _context.Movimentacoes.FirstOrDefault(movimentacao => movimentacao.ContainerId == containerId);
+            if (movimentacao != null)
+            {
+                MovimentacaoResponseDTO movimentacaoDto = _mapper.Map<MovimentacaoResponseDTO>(movimentacao);
+                return Ok(movimentacaoDto);
+            }
+            return NotFound();
+        }
 
 
     [HttpPut("{id}")]

@@ -8,6 +8,9 @@ public class ContainerProfile : Profile
 {
     public ContainerProfile()
     {
+        CreateMap<Container, ContainerResponseDTO>()
+    .ForMember(containerDto => containerDto.Movimentacoes,
+        opt => opt.MapFrom(container => container.Movimentacoes));
         CreateMap<CreateContainerDTO, Container>(); 
         CreateMap<Container, CreateContainerDTO>(); 
         CreateMap<UpdateContainerDTO, Container>(); 

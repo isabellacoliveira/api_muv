@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using portoApplicationV1.Models;
 using setorPortuario.DTOs.Enums;
 
 namespace setorPortuario.Models
@@ -22,5 +23,7 @@ namespace setorPortuario.Models
 
         [Required(ErrorMessage = "A categoria do container é obrigatória!")]
         public CategoriaContainer Categoria { get; set; }
+        public virtual ICollection<Movimentacao> Movimentacoes { get; set; }
+
     }
 }

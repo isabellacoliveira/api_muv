@@ -18,6 +18,6 @@ namespace portoApplicationV1.Models
         [ForeignKey("Container")]
         public int ContainerId { get; set; } // Chave estrangeira
 
-        public Container Container { get; set; } 
+        public virtual Container Container { get; set; } 
     }
 }

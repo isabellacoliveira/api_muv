@@ -2,7 +2,7 @@ using setorPortuario.DTOs.Enums;
 
 namespace setorPortuario.DTOs.Container
 {
-    public class FiltroContainerQuery
+    public class FiltroContainerDTO
     {
        public string Cliente {get; set;} 
        public string NumeroContainer {get; set;} 

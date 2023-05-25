@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using portoApplicationV1.Data;
 using portoApplicationV1.DTOs.Container;
 using setorPortuario.Models;
@@ -19,26 +20,29 @@ namespace portoApplicationV1.Controllers
             _mapper = mapper;
         }
 
-    private static List<Container> containers = new List<Container>();
-    private static int id = 0; 
 
+        [HttpPost]
+        public IActionResult adicionaContainer([FromBody] CreateContainerDTO containerDto)
+        {
+            Container container = _mapper.Map<Container>(containerDto);
+            _context.Containers.Add(container); 
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(buscarContainerPorId), new { id = container.Id }, container);
 
-    [HttpPost]
-    public IActionResult adicionaContainer([FromBody] CreateContainerDTO containerDto)
-    {
-        Container container = _mapper.Map<Container>(containerDto);
-        _context.Containers.Add(container); 
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(buscarContainerPorId), new { id = container.Id }, container);
-
-    }
+        }
 
     [HttpGet]
-    public IEnumerable<ContainerResponseDTO> buscarContainers([FromQuery] int skip = 0, 
-                                                              [FromQuery] int take = 50)
+    public IEnumerable<ContainerResponseDTO> buscarMovimentacao([FromQuery] int skip = 0, [FromQuery] int take = 50)
     {
-        return _mapper.Map<List<ContainerResponseDTO>>(_context.Containers.Skip(skip).Take(take));
+        var containers = _context.Containers
+            .Include(c => c.Movimentacoes)
+            .Skip(skip)
+            .Take(take)
+            .ToList();
+
+        return _mapper.Map<List<ContainerResponseDTO>>(containers);
     }
+
 
     [HttpGet("{id}")]
     public IActionResult buscarContainerPorId(int id)
