@@ -24,7 +24,7 @@ namespace portoApplicationV1.Controllers
             _exportarPDFRelatorioService = exportarPDFRelatorioService;
         }
 
-         [HttpGet("exportarPDFMovimentacao")]
+        [HttpGet("exportarPDFMovimentacao")]
         public async Task<byte[]> ExportarPDFRelatorio(
             [FromQuery] FiltroRelatorioDTO query
         )
