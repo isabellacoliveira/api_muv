@@ -16,7 +16,7 @@ movimentado. E ao solicitar, o usuário pode obter um relatório com o total de 
 
 ## 📄 Documentação
 
-A documentação das funcionalidades da aplicação pode ser acessada neste link: <a href="[https://tinted-editor-613.notion.site/TESTE-PR-TICO-1556a1348cd8440fb32c2e76043baec1](https://tinted-editor-613.notion.site/TESTE-PR-TICO-1556a1348cd8440fb32c2e76043baec1)">Notion</a>
+A documentação das funcionalidades da aplicação pode ser acessada neste link: <a href="https://tinted-editor-613.notion.site/TESTE-PR-TICO-1556a1348cd8440fb32c2e76043baec1">Notion</a>
 
 ---
 
@@ -73,7 +73,5 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 # RELATÓRIO 
 
 ![BASE64](./assets/gif10.gif)
-
-
 
 ---
